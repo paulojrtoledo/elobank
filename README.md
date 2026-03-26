@@ -1,66 +1,71 @@
-# Elo Bank 💳 — Backend
+Elo Bank 💳 — Backend
 
-**Elo Bank** is a digital banking platform under development, built with focus on **security**, **scalability** and **best practices**. The project simulates a real bank, allowing account opening, transfers (PIX/TED), Pix key management and secure authentication.
+Elo Bank is a digital banking platform under development, built with focus on security, scalability and best practices. The project simulates a real bank, allowing account opening, transfers (PIX/TED), Pix key management and secure authentication.
 
-> 🚧 **Project Status:** Active development
+🚧 Project Status: Active development
 
----
-
-## 🎯 Project Goal
+🎯 Project Goal
 
 Build a full stack application from scratch that demonstrates:
 
-- Mastery of **Java, Spring Boot and ecosystem**
-- Practical application of **cybersecurity** in a critical domain
-- Clean architecture, concurrency and best practices
-- Ability to build a **full stack** application
-
----
-
-## 🚀 Tech Stack
-
-- **Java 17+**
-- **Spring Boot** (Web, Data JPA, Security, Validation)
-- **JWT** for authentication
-- **JPA / Hibernate** with PostgreSQL
-- **Maven**
-- **Lombok**
-- **Bean Validation**
-
----
-
-## ✅ Progress
-
-### Phase 1 — Domain Modeling (Completed)
-
-| Entity | Description |
-|--------|-------------|
-| **Customer** | Bank customer (individual) with CPF, email, status |
-| **Account** | Bank account (checking/savings) |
-| **Transaction** | PIX, TED and debit transfers |
-| **PixKey** | Pix keys (CPF, email, phone, random) |
-| **LoginAudit** | Login attempts audit |
+Mastery of Java, Spring Boot and ecosystem
+Practical application of cybersecurity in a critical domain
+Clean architecture, layered architecture and best practices
+Ability to build a full stack application
+🚀 Tech Stack
+Java 17+
+Spring Boot (Web, Data JPA, Security, Validation)
+JPA / Hibernate with PostgreSQL
+Spring Security
+Maven
+Lombok
+Bean Validation
+✅ Progress
+Phase 1 — Domain Modeling (Completed)
+Entity	Description
+Customer	Bank customer (individual) with CPF, email, status
+Account	Bank account (checking/savings)
+Transaction	PIX, TED and debit transfers
+PixKey	Pix keys (CPF, email, phone, random)
+LoginAudit	Login attempts audit
 
 Applied concepts:
 
-- ✅ JPA relationships (`@OneToMany`, `@ManyToOne`)
-- ✅ Bean Validation (`@NotNull`, `@Email`, `@Positive`)
-- ✅ Strategic indexes (`cpf`, `accountNumber`, `keyValue`)
-- ✅ Enums with `@Enumerated(EnumType.STRING)`
-- ✅ Encapsulation with business methods (`block()`, `activate()`)
+✅ JPA relationships (@OneToMany, @ManyToOne)
+✅ Bean Validation (@NotNull, @Email, @Size)
+✅ Strategic indexes (cpf, email)
+✅ Enums with @Enumerated(EnumType.STRING)
+✅ Encapsulation with business methods (block(), activate())
+Phase 2 — Backend Core (In progress)
+✅ JPA Repositories for all domain entities
+✅ Service layer with dependency injection
+✅ DTO pattern (Request / Response separation)
+✅ Password hashing with BCrypt
+✅ Business validation (CPF uniqueness)
+✅ Global exception handling (@RestControllerAdvice)
+✅ Structured validation errors (field-level feedback)
+✅ REST Controller for customer registration (POST /customers)
+✅ Application running with embedded Tomcat (Spring Web)
+🌐 API Overview
+Create Customer
+POST /customers
 
-### Phase 2 — Service Layer (In progress)
+Request Body:
 
-- ✅ Repositories for all domain entities
-- ✅ CustomerService with dependency injection
-- ⏳ DTOs
-- ⏳ Spring Security + JWT
-- ⏳ REST Controllers
+{
+  "name": "Paulo Emilio",
+  "cpf": "12345678901",
+  "password": "123456",
+  "email": "paulo@email.com"
+}
 
----
+Features:
 
-## 📦 How to run locally
-```bash
+CPF uniqueness validation
+Password hashing (BCrypt)
+DTO-based response
+Structured validation error handling
+📦 How to run locally
 # Clone the repository
 git clone https://github.com/paulojrtoledo/elobank-backend.git
 
@@ -72,23 +77,16 @@ cd elobank-backend
 
 # Run with Maven
 ./mvnw spring-boot:run
-```
+🔗 Related Repository
 
----
+Frontend: elobank-frontend
 
-## 🔗 Related Repository
+📌 Author
 
-Frontend: [elobank-frontend](https://github.com/paulojrtoledo/elobank-frontend)
+Paulo Emilio de Toledo Jr
+LinkedIn
+ | GitHub
 
----
-
-## 📌 Author
-
-**Paulo Emilio de Toledo Jr**
-[LinkedIn](https://www.linkedin.com/in/pauloemilio-tech) | [GitHub](https://github.com/paulojrtoledo)
-
----
-
-## 📝 License
+📝 License
 
 This project is developed for study and portfolio purposes.
