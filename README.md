@@ -1,53 +1,60 @@
 Elo Bank 💳 — Backend
 
-Elo Bank is a digital banking platform under development, built with focus on security, scalability and best practices. The project simulates a real bank, allowing account opening, transfers (PIX/TED), Pix key management and secure authentication.
+Elo Bank is a backend system for a digital banking platform under development, designed with a focus on security, data integrity, and scalable architecture.
+
+The project implements core banking concepts such as customer management, account structures, transaction modeling, and secure authentication mechanisms.
 
 🚧 Project Status: Active development
 
-🎯 Project Goal
+🎯 Overview
 
-Build a full stack application from scratch that demonstrates:
+This project aims to design and implement a backend system aligned with real-world banking requirements, focusing on:
 
-Mastery of Java, Spring Boot and ecosystem
-Practical application of cybersecurity in a critical domain
-Clean architecture, layered architecture and best practices
-Ability to build a full stack application
+Secure authentication and data protection
+Consistent domain modeling and business rules
+Scalable and maintainable architecture
+Clear separation of concerns and clean code practices
 🚀 Tech Stack
 Java 17+
 Spring Boot (Web, Data JPA, Security, Validation)
-JPA / Hibernate with PostgreSQL
 Spring Security
+JPA / Hibernate
+PostgreSQL
 Maven
 Lombok
 Bean Validation
+🧱 Current Stage
+
+Core backend structure with domain modeling and initial API endpoints implemented.
+
 ✅ Progress
 Phase 1 — Domain Modeling (Completed)
 Entity	Description
 Customer	Bank customer (individual) with CPF, email, status
 Account	Bank account (checking/savings)
-Transaction	PIX, TED and debit transfers
+Transaction	Financial transactions (PIX, TED, debit)
 PixKey	Pix keys (CPF, email, phone, random)
-LoginAudit	Login attempts audit
+LoginAudit	Login attempts tracking
 
 Applied concepts:
 
-✅ JPA relationships (@OneToMany, @ManyToOne)
-✅ Bean Validation (@NotNull, @Email, @Size)
-✅ Strategic indexes (cpf, email)
-✅ Enums with @Enumerated(EnumType.STRING)
-✅ Encapsulation with business methods (block(), activate())
-Phase 2 — Backend Core (In progress)
-✅ JPA Repositories for all domain entities
-✅ Service layer with dependency injection
-✅ DTO pattern (Request / Response separation)
-✅ Password hashing with BCrypt
-✅ Business validation (CPF uniqueness)
-✅ Global exception handling (@RestControllerAdvice)
-✅ Structured validation errors (field-level feedback)
-✅ REST Controller for customer registration (POST /customers)
-✅ Application running with embedded Tomcat (Spring Web)
+JPA relationships (@OneToMany, @ManyToOne)
+Bean Validation (@NotNull, @Email, @Size)
+Strategic indexing (CPF, email)
+Enums with @Enumerated(EnumType.STRING)
+Domain encapsulation with business methods (block(), activate())
+Phase 2 — Backend Core (In Progress)
+JPA repositories for domain entities
+Service layer with dependency injection
+DTO pattern (Request / Response separation)
+Password hashing with BCrypt
+Business validation (CPF uniqueness)
+Global exception handling (@RestControllerAdvice)
+Structured validation errors (field-level feedback)
+Initial REST endpoint for customer registration
 🌐 API Overview
 Create Customer
+
 POST /customers
 
 Request Body:
@@ -62,31 +69,25 @@ Request Body:
 Features:
 
 CPF uniqueness validation
-Password hashing (BCrypt)
+Secure password hashing (BCrypt)
 DTO-based response
 Structured validation error handling
-📦 How to run locally
+🧪 Running Locally
 # Clone the repository
 git clone https://github.com/paulojrtoledo/elobank-backend.git
 
-# Access the folder
+# Navigate to the project folder
 cd elobank-backend
 
 # Configure environment variables (PostgreSQL)
-# DB_EB_URL, DB_EB_USERNAME, DB_EB_PASSWORD
+# DB_EB_URL
+# DB_EB_USERNAME
+# DB_EB_PASSWORD
 
-# Run with Maven
+# Run the application
 ./mvnw spring-boot:run
 🔗 Related Repository
-
 Frontend: elobank-frontend
 
-📌 Author
-
+👤 Author
 Paulo Emilio de Toledo Jr
-LinkedIn
- | GitHub
-
-📝 License
-
-This project is developed for study and portfolio purposes.
