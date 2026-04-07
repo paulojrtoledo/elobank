@@ -145,6 +145,7 @@ cd elobank-backend
 🔗 Related Repository
 
 Frontend: elobank-frontend
+https://github.com/paulojrtoledo/elobank-frontend 
 
 ---
 
