@@ -7,6 +7,8 @@ import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.security.core.Authentication;
 
 @RestController
 public class CustomerController {
@@ -19,5 +21,10 @@ public class CustomerController {
     @PostMapping("/customers")
     public CustomerResponseDTO registerCustomer(@Valid @RequestBody CustomerRequestDTO customerRequestDTO) {
         return customerService.registerNewCustomer(customerRequestDTO);
+    }
+
+    @GetMapping("/customers/me")
+    public String getCurrentUser(Authentication authentication) {
+        return authentication.getName();
     }
 }

@@ -1,4 +1,7 @@
 package com.elobank.api.dto.response;
 
-public record LoginResponseDTO() {
+public record LoginResponseDTO(
+        String token,
+        String type
+) {
 }

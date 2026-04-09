@@ -30,6 +30,4 @@ public class CustomerService {
 
         return new CustomerResponseDTO(savedCustomer.getId(), savedCustomer.getName(), savedCustomer.getEmail());
     }
-
-
 }
