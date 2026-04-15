@@ -26,19 +26,24 @@ Maven
 Lombok
 Bean Validation
 JWT (JSON Web Token)
+Docker
+Docker Compose
 
 🧱 Current Stage
 
-Backend core and complete authentication flow with JWT implemented, including protected endpoints and stateless security configuration.
+Backend fully functional with authentication flow implemented and environment containerized using Docker.
+
+The system is now reproducible and runs with isolated services (application + database), simulating a real-world backend environment.
 
 ✅ Progress
 Phase 1 — Domain Modeling (Completed)
-Entity	Description
-Customer	Bank customer (individual) with CPF, email, status
-Account	Bank account (checking/savings)
-Transaction	Financial transactions (PIX, TED, debit)
-PixKey	Pix keys (CPF, email, phone, random)
-LoginAudit	Login attempts tracking
+
+Entity | Description
+Customer | Bank customer (individual) with CPF, email, status
+Account | Bank account (checking/savings)
+Transaction | Financial transactions (PIX, TED, debit)
+PixKey | Pix keys (CPF, email, phone, random)
+LoginAudit | Login attempts tracking
 
 Applied concepts:
 
@@ -69,15 +74,20 @@ Custom authentication entry point (401 handler)
 Custom access denied handler (403 handler)
 Password encryption using BCryptPasswordEncoder
 
-Public Endpoints
+🌐 Infrastructure (Dockerized)
 
-POST /customers (registration)
-POST /auth/login (authentication)
-OPTIONS /** (CORS preflight)
+The backend environment is fully containerized:
 
-Protected Endpoints
+Dockerfile for application packaging
+Docker Compose orchestrating backend and PostgreSQL
+Environment variables externalized via .env
+Isolated network between services
 
-All other endpoints require a valid JWT token.
+The application can be executed with a single command:
+
+docker compose up
+
+This ensures environment consistency and reproducibility across different machines.
 
 🧠 Authentication Flow
 
@@ -137,24 +147,28 @@ Authorization: Bearer <JWT_TOKEN>
 
 Response:
 
-"12345678901"
-🧪 Running Locally
+{
+  "id": 1,
+  "name": "Paulo Emilio",
+  "email": "paulo@email.com"
+}
+🧪 Running the Application
+Using Docker (Recommended)
 # Clone the repository
 git clone https://github.com/paulojrtoledo/elobank-backend.git
 
 # Navigate to the project folder
 cd elobank-backend
 
-# Configure environment variables (PostgreSQL)
+# Create .env file with:
+# JWT_SECRET
 # DB_EB_URL
 # DB_EB_USERNAME
 # DB_EB_PASSWORD
 
-# JWT configuration (for authentication)
-# security.jwt.secret
-# security.jwt.expiration-in-minutes
-
 # Run the application
+docker compose up
+Running Locally (without Docker)
 ./mvnw spring-boot:run
 🔗 Related Repository
 
