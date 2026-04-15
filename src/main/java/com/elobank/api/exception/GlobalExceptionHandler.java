@@ -53,6 +53,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ErrorResponse handleInternalServerError(Exception ex) {
+        ex.printStackTrace();
         return new ErrorResponse(
                 "Ocorreu um erro interno no sistema",
                 HttpStatus.INTERNAL_SERVER_ERROR.value(),

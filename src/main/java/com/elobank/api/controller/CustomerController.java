@@ -24,7 +24,8 @@ public class CustomerController {
     }
 
     @GetMapping("/customers/me")
-    public String getCurrentUser(Authentication authentication) {
-        return authentication.getName();
+    public CustomerResponseDTO getCurrentUser(Authentication authentication) {
+        String cpf = authentication.getName();
+        return customerService.getCurrentCustomer(cpf);
     }
 }

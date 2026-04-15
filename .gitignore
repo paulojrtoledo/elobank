@@ -35,4 +35,5 @@ build/
 # Arquivos de configuração local
 application-local.properties
 application-dev.properties
+.env
 *.env

@@ -30,4 +30,15 @@ public class CustomerService {
 
         return new CustomerResponseDTO(savedCustomer.getId(), savedCustomer.getName(), savedCustomer.getEmail());
     }
+
+    public CustomerResponseDTO getCurrentCustomer(String cpf) {
+        Customer customer = customerRepository.findByCpf(cpf)
+                .orElseThrow(() -> new RuntimeException("Cliente não encontrado"));
+
+        return new CustomerResponseDTO(
+                customer.getId(),
+                customer.getName(),
+                customer.getEmail()
+        );
+    }
 }
