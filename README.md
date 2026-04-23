@@ -1,22 +1,20 @@
-Elo Bank 💳 — Backend
+Spendly 💰 — Backend
 
-Elo Bank is a backend system for a digital banking platform under development, designed with a focus on security, data integrity, and scalable architecture.
+Spendly is a backend system for a personal finance management platform under development, designed with a focus on security, data integrity, and scalable architecture.
 
-The project implements core banking concepts such as customer management, account structures, transaction modeling, and secure JWT-based authentication.
+Originally conceived as a digital banking simulation (Elo Bank), the project evolved into Spendly to better reflect a real-world, user-centric financial product, focusing on expense tracking, financial organization, and practical use cases.
 
 🚧 Project Status: Active development
 
 🎯 Overview
 
-This project aims to design and implement a backend system aligned with real-world banking requirements, focusing on:
+This project aims to design and implement a backend system aligned with real-world application needs, focusing on:
 
 Secure authentication and data protection
 Consistent domain modeling and business rules
 Scalable and maintainable architecture
 Clear separation of concerns and clean code practices
-
 🚀 Tech Stack
-
 Java 17+
 Spring Boot (Web, Data JPA, Security, Validation)
 Spring Security
@@ -28,22 +26,30 @@ Bean Validation
 JWT (JSON Web Token)
 Docker
 Docker Compose
-
 🧱 Current Stage
 
 Backend fully functional with authentication flow implemented and environment containerized using Docker.
 
 The system is now reproducible and runs with isolated services (application + database), simulating a real-world backend environment.
 
+🧠 Domain Evolution (Elo Bank → Spendly)
+
+The project was initially built as a digital banking backend to explore complex financial modeling.
+
+However, it was later refactored into Spendly, a personal finance management system, to:
+
+Focus on a more realistic and widely applicable use case
+Improve product-market alignment
+Enable future features such as expense tracking, categorization, and financial insights
+Maintain the technical robustness while shifting to a more practical domain
 ✅ Progress
 Phase 1 — Domain Modeling (Completed)
-
-Entity | Description
-Customer | Bank customer (individual) with CPF, email, status
-Account | Bank account (checking/savings)
-Transaction | Financial transactions (PIX, TED, debit)
-PixKey | Pix keys (CPF, email, phone, random)
-LoginAudit | Login attempts tracking
+Entity	Description
+Customer	User of the platform with CPF, email and status
+Account	Financial account representation
+Transaction	Financial transactions (future focus: expenses/income tracking)
+PixKey	Pix keys (CPF, email, phone, random)
+LoginAudit	Login attempts tracking
 
 Applied concepts:
 
@@ -52,9 +58,7 @@ Bean Validation (@NotNull, @Email, @Size)
 Strategic indexing (CPF, email)
 Enums with @Enumerated(EnumType.STRING)
 Domain encapsulation with business methods (block(), activate())
-
 Phase 2 — Backend Core (Completed)
-
 JPA repositories for domain entities
 Service layer with dependency injection
 DTO pattern (Request / Response separation)
@@ -62,7 +66,6 @@ Password hashing with BCrypt
 Business validation (CPF uniqueness)
 Global exception handling (@RestControllerAdvice)
 Structured validation errors (field-level feedback)
-
 🔐 Security & Authentication (Implemented)
 
 Stateless authentication using JWT:
@@ -73,7 +76,6 @@ Custom JWT authentication filter (JwtAuthenticationFilter)
 Custom authentication entry point (401 handler)
 Custom access denied handler (403 handler)
 Password encryption using BCryptPasswordEncoder
-
 🌐 Infrastructure (Dockerized)
 
 The backend environment is fully containerized:
@@ -98,7 +100,6 @@ JWT includes subject (CPF) and user claims
 Frontend sends token via Authorization header
 JWT filter validates token on every request
 Spring Security authenticates user via SecurityContext
-
 🌐 API Overview
 Create Customer
 
@@ -119,7 +120,6 @@ CPF uniqueness validation
 Secure password hashing (BCrypt)
 DTO-based response
 Structured validation error handling
-
 Login
 
 POST /auth/login
@@ -155,16 +155,16 @@ Response:
 🧪 Running the Application
 Using Docker (Recommended)
 # Clone the repository
-git clone https://github.com/paulojrtoledo/elobank-backend.git
+git clone https://github.com/paulojrtoledo/spendly-backend.git
 
 # Navigate to the project folder
-cd elobank-backend
+cd spendly-backend
 
 # Create .env file with:
 # JWT_SECRET
-# DB_EB_URL
-# DB_EB_USERNAME
-# DB_EB_PASSWORD
+# DB_SPENDLY_URL
+# DB_SPENDLY_USERNAME
+# DB_SPENDLY_PASSWORD
 
 # Run the application
 docker compose up
@@ -172,8 +172,8 @@ Running Locally (without Docker)
 ./mvnw spring-boot:run
 🔗 Related Repository
 
-Frontend: elobank-frontend
-https://github.com/paulojrtoledo/elobank-frontend
+Frontend:
+https://github.com/paulojrtoledo/spendly-frontend
 
 👤 Author
 
