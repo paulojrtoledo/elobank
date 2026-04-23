@@ -1,9 +1,9 @@
 package com.spendly.domain.entity;
 
 public enum TransactionType {
-    PIX("Transferência por Pix"),
-    TED("Transferência Eletrônica Disponível"),
-    DEBIT("Transferência por Débito");
+    INCOME("Entrada financeira"),
+    EXPENSE("Saída financeira"),
+    TRANSFER("Transferência entre carteiras");
 
     private String description;
 

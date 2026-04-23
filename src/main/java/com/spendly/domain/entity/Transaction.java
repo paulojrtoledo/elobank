@@ -12,8 +12,8 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Table(name = "transaction",
     indexes = {
-        @Index(name = "idx_transaction_source_account", columnList = "source_account_id"),
-        @Index(name = "idx_transaction_destination_account", columnList = "destination_account_id")
+        @Index(name = "idx_transaction_source_wallet", columnList = "source_wallet_id"),
+        @Index(name = "idx_transaction_destination_wallet", columnList = "destination_wallet_id")
     })
 public class Transaction {
     @Id
@@ -22,14 +22,18 @@ public class Transaction {
     @NotNull @Positive @Getter private double amount;
     @NotNull @Getter @Enumerated(EnumType.STRING) private TransactionType transactionType;
     @NotNull @Getter private LocalDateTime timestamp;
-    @NotNull @Getter @ManyToOne private Account sourceAccount;
-    @NotNull @Getter @ManyToOne private Account destinationAccount;
+    @NotNull @Getter @ManyToOne
+    @JoinColumn(name = "source_wallet_id")
+    private Wallet sourceWallet;
+    @NotNull @Getter @ManyToOne
+    @JoinColumn(name = "destination_wallet_id")
+    private Wallet destinationWallet;
     @Getter @Enumerated(EnumType.STRING) private TransactionStatus transactionStatus = TransactionStatus.PENDING;
 
-    public Transaction(double amount, Account sourceAccount, Account destinationAccount, TransactionType transactionType) {
+    public Transaction(double amount, Wallet sourceWallet, Wallet destinationWallet, TransactionType transactionType) {
         this.amount = amount;
-        this.sourceAccount = sourceAccount;
-        this.destinationAccount = destinationAccount;
+        this.sourceWallet = sourceWallet;
+        this.destinationWallet = destinationWallet;
         this.transactionType = transactionType;
         this.timestamp = LocalDateTime.now();
     }

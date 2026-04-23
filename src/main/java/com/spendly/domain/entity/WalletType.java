@@ -1,12 +1,12 @@
 package com.spendly.domain.entity;
 
-public enum AccountType {
+public enum WalletType {
     CHECKING("Conta Corrente"),
     SAVINGS("Poupança");
 
     private String description;
 
-    AccountType(String description) {
+    WalletType(String description) {
         this.description = description;
     }
 }

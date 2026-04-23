@@ -2,7 +2,7 @@ Spendly 💰 — Backend
 
 Spendly is a backend system for a personal finance management platform under development, designed with a focus on security, data integrity, and scalable architecture.
 
-Originally conceived as a digital banking simulation (Elo Bank), the project evolved into Spendly to better reflect a real-world, user-centric financial product, focusing on expense tracking, financial organization, and practical use cases.
+Spendly is designed as a real-world, user-centric financial product, focusing on expense tracking, financial organization, and practical use cases.
 
 🚧 Project Status: Active development
 
@@ -32,11 +32,9 @@ Backend fully functional with authentication flow implemented and environment co
 
 The system is now reproducible and runs with isolated services (application + database), simulating a real-world backend environment.
 
-🧠 Domain Evolution (Elo Bank → Spendly)
+🧠 Domain Direction
 
-The project was initially built as a digital banking backend to explore complex financial modeling.
-
-However, it was later refactored into Spendly, a personal finance management system, to:
+The project is positioned as Spendly, a personal finance management system, to:
 
 Focus on a more realistic and widely applicable use case
 Improve product-market alignment
@@ -46,9 +44,9 @@ Maintain the technical robustness while shifting to a more practical domain
 Phase 1 — Domain Modeling (Completed)
 Entity	Description
 Customer	User of the platform with CPF, email and status
-Account	Financial account representation
-Transaction	Financial transactions (future focus: expenses/income tracking)
-PixKey	Pix keys (CPF, email, phone, random)
+Wallet	Financial wallet representation
+Transaction	Financial movements (expenses/income/transfers)
+PaymentKey	Payment keys (CPF, email, phone, random)
 LoginAudit	Login attempts tracking
 
 Applied concepts:

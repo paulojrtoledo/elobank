@@ -1,6 +1,6 @@
 package com.spendly.domain.entity;
 
-public enum KeyType {
+public enum PaymentKeyType {
     CPF,
     EMAIL,
     PHONE,

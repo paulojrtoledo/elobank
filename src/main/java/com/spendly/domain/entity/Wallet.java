@@ -11,27 +11,27 @@ import java.time.LocalDate;
 
 @Entity
 @NoArgsConstructor
-@Table(name = "account",
+@Table(name = "wallet",
     indexes = {
-        @Index(name = "idx_account_account_number", columnList = "account_number")
+        @Index(name = "idx_wallet_wallet_number", columnList = "wallet_number")
     })
-public class Account {
+public class Wallet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotNull @Getter private int branch;
-    @NotNull @Getter private Long accountNumber;
+    @NotNull @Getter private Long walletNumber;
     @NotNull @PositiveOrZero @Getter private double balance;
     @Getter @Setter
-    @NotNull @Enumerated(EnumType.STRING) private AccountType accountType;
+    @NotNull @Enumerated(EnumType.STRING) private WalletType walletType;
     @NotNull private LocalDate openingDate;
     @ManyToOne
     @JoinColumn(name = "customer_id")
     @NotNull private Customer customer;
 
-    public Account(int branch, Long accountNumber, Customer customer) {
+    public Wallet(int branch, Long walletNumber, Customer customer) {
         this.branch = branch;
-        this.accountNumber = accountNumber;
+        this.walletNumber = walletNumber;
         this.customer = customer;
         this.openingDate = LocalDate.now();
     }

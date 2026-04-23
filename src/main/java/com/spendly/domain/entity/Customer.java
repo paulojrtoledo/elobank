@@ -32,7 +32,7 @@ public class Customer {
     private LocalDate registrationDate;
     @Enumerated(EnumType.STRING) private CustomerStatus status;
     @OneToMany(mappedBy = "customer")
-    private List<Account> accounts;
+    private List<Wallet> wallets;
 
 
     public Customer(String name, String cpf, String passwordHash, String email) {
