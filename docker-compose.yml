@@ -1,9 +1,9 @@
 services:
   postgres:
     image: postgres:16
-    container_name: elobank-postgres
+    container_name: spendly-postgres
     environment:
-      POSTGRES_DB: elobank
+      POSTGRES_DB: spendly
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     ports:
@@ -13,14 +13,14 @@ services:
 
   backend:
     build: .
-    container_name: elobank-backend
+    container_name: spendly-backend
     depends_on:
       - postgres
     environment:
       JWT_SECRET: ${JWT_SECRET}
-      DB_EB_URL: jdbc:postgresql://postgres:5432/elobank
-      DB_EB_USERNAME: postgres
-      DB_EB_PASSWORD: postgres
+      DB_SPENDLY_URL: jdbc:postgresql://postgres:5432/spendly
+      DB_SPENDLY_USERNAME: postgres
+      DB_SPENDLY_PASSWORD: postgres
     ports:
       - "8080:8080"
 
